@@ -1,1 +1,13 @@
-a
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="handson.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+  <g id="ski-man">
+
+    <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20"/>
+
+    <ellipse id="body" cx="0" cy="0" rx="20" ry="50"/>
+
+  </g>
+
+</svg>
