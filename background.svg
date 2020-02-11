@@ -104,7 +104,19 @@
     </g>
     <!--Tree -->
     <g  id='tree' transform="translate(100,100)">
-        <polygon points="623,100 650,70 664,100" fill="rgb(9,82,40)" />
+        <!--leafs -->
+        <g>
+          <polygon points="0,120 50,100 100,120" fill="rgb(9,82,40)" />
+          <polygon points="5,110 50,90 95,110" fill="rgb(9,82,40)" />
+          <polygon points="10,100 50,80 90,100" fill="rgb(9,82,40)" />
+          <polygon points="15,90 50,70 85,90" fill="rgb(9,82,40)" />
+          <polygon points="20,80 50,65 80,80" fill="rgb(9,82,40)" />
+          <polygon points="30,70 50,50 70,70" fill="rgb(9,82,40)" />
+        </g>
+        <!--trunk -->
+        <g transform="translate(46,120)">
+          <rect width='8' height='20' fill='brown' />
+        </g>
     </g>
 
   </defs>
@@ -114,5 +126,5 @@
 
 <use xlink:href="#mountain" x="100" y="100" />-->
 
-<use xlink:href="#tree" x="100" y="100" />
+<use xlink:href="#tree" x="0" y="0" />
 </svg>
