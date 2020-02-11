@@ -2,4 +2,7 @@
 <?xml-stylesheet type="text/css" href="handson.css" ?>
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
+  <polygon points="200,10 250,190 160,210" style="fill:lime;stroke:purple;stroke-width:1" />
+
+  
 </svg>
