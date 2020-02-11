@@ -119,12 +119,119 @@
         </g>
     </g>
 
+    <!--snow branch -->
+      <g id='snow-branch'>
+
+        <rect x="0" y="0" rx="5" ry="5" width="150" height="10"
+            style="fill:white;opacity:0.5" />
+        <g transform="translate(10,-20) scale(0.5)" >
+            <polyline points="0,0 50,50 0,100"
+              style="fill:none;stroke:white;stroke-width:8;opacity:0.5" />
+        </g>
+        <g transform="translate(138,30) scale(0.5) rotate(180)" >
+            <polyline points="0,0 50,50 0,100"
+              style="fill:none;stroke:white;stroke-width:8;opacity:0.5" />
+        </g>
+      </g>
+    <!--snow-flake -->
+    <g  id='snow' transform="translate(0,0)">
+      <use xlink:href="#snow-branch" x="0" y="0" />
+      <g transform="translate(0,0) rotate(120 75 5)" >
+        <use xlink:href="#snow-branch" x="0" y="0" />
+      </g>
+      <g transform="translate(0,0) rotate(240 75 5)" >
+        <use xlink:href="#snow-branch" x="0" y="0" />
+      </g>
+    </g>
+    <!--snow groupe -->
+    <g  id='snow-groupe' transform="translate(0,0)">
+      <g transform="scale(0.1)">
+        <use xlink:href="#snow" x="0" y="0" />
+        <use xlink:href="#snow" x="1000" y="1000" />
+        <use xlink:href="#snow" x="500" y="562" />
+        <use xlink:href="#snow" x="2000" y="152" />
+        <use xlink:href="#snow" x="1235" y="230" />
+        <use xlink:href="#snow" x="2569" y="784" />
+        <use xlink:href="#snow" x="2258" y="985" />
+      </g>
+    </g>
+
+    <!--snow fall -->
+    <g  id='snow-fall' transform="translate(0,0)">
+      <g transform="translate(0,0)">
+        <use xlink:href="#snow-groupe" x="0" y="0" />
+        <use xlink:href="#snow-groupe" x="300" y="0" />
+        <use xlink:href="#snow-groupe" x="600" y="0" />
+
+        <use xlink:href="#snow-groupe" x="0" y="100" />
+        <use xlink:href="#snow-groupe" x="300" y="100" />
+        <use xlink:href="#snow-groupe" x="600" y="100" />
+
+        <use xlink:href="#snow-groupe" x="0" y="200" />
+        <use xlink:href="#snow-groupe" x="300" y="200" />
+        <use xlink:href="#snow-groupe" x="600" y="200" />
+
+        <use xlink:href="#snow-groupe" x="0" y="300" />
+        <use xlink:href="#snow-groupe" x="300" y="300" />
+        <use xlink:href="#snow-groupe" x="600" y="300" />
+
+        <use xlink:href="#snow-groupe" x="0" y="400" />
+        <use xlink:href="#snow-groupe" x="300" y="400" />
+        <use xlink:href="#snow-groupe" x="600" y="400" />
+      </g>
+    </g>
+
+    <!--snow-animation slow-->
+    <g  id='snow-animation-slow' transform="translate(0,0)">
+
+      <g transform="translate(0,0) rotate(180 400 0)">
+        <use xlink:href="#snow-fall" x="0" y="-500" />
+        <use xlink:href="#snow-fall" x="0" y="0" />
+      </g>
+      <animateTransform id="snowFallStart" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="0 500"
+                                dur="4s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <!--snow-animation fast-->
+    <g  id='snow-animation-fast' transform="translate(0,0)">
+
+      <g transform="translate(0,0)">
+        <use xlink:href="#snow-fall" x="0" y="-500" />
+        <use xlink:href="#snow-fall" x="0" y="0" />
+      </g>
+      <animateTransform id="snowFallStart" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="0 500"
+                                dur="8s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <!--sky-->
+    <g id='sky'>
+        <rect width='800' height='500' fill='rgb(135 206 235)' />
+    </g>
   </defs>
 
 
-<!--<rect width="800" height="600" fill='rgb(119,181,254)' />
+<use xlink:href="#sky" x="0" y="0" />
+<g transform="translate(0,300)">
+  <rect width='800' height='205' fill='white' />
+</g>
+<use xlink:href="#mountain" x="100" y="50" />
+<g transform="translate(200,0)">
+  <use xlink:href="#tree" x="0" y="100" />
+  <use xlink:href="#tree" x="50" y="95" />
+  <use xlink:href="#tree" x="180" y="100" />
+  <use xlink:href="#tree" x="290" y="85" />
+</g>
 
-<use xlink:href="#mountain" x="100" y="100" />-->
-
-<use xlink:href="#tree" x="0" y="0" />
+<use xlink:href="#snow-animation-fast" x="0" y="0" />
+<use xlink:href="#snow-animation-slow" x="40" y="0" />
 </svg>
