@@ -1,0 +1,23 @@
+/* fiche de style de l'animation "test.svg" */
+
+#début {
+  stroke:black;
+  stroke-width:2;
+}
+
+#piste {
+  stroke:black;
+  stroke-width:2;
+  fill:transparent;
+}
+
+#tremplin {
+  stroke:black;
+  stroke-width:2;
+  fill:transparent;
+}
+
+#vol {
+  stroke:transparent;
+  stroke-width:2;
+}

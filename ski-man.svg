@@ -1,36 +1,35 @@
 <?xml version="1.0" standalone="no"?>
 <?xml-stylesheet type="text/css" href="handson.css" ?>
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="-300 -300 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
   <rect id="background" width="800" height="600" fill="gainsboro"/>
 
 <defs>
   <g id="ski-man">
-    <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
-    <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+    <ellipse id="body" transform="translate(0,-100)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
+    <circle id="head" transform="translate(0,-150)" cx="0" cy="0" r="20" fill="antiquewhite"/>
 
-    <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+    <line id="battons" transform="translate(-50,-70)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
 
     <g id="hat">
-      <rect id="bottom" transform="translate(79,90)" width="42" height="5" fill="white"/>
-      <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0" fill="red"/>
-      <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3" fill="white"/>
+      <rect id="bottom" transform="translate(-21,-160)" width="42" height="5" fill="white"/>
+      <polygon id="middle" transform="translate(0,-180)" points="-21,20 21,20, 0,0" fill="red"/>
+      <circle id="top" transform="translate(0,-180)" cx="0" cy="0" r="3" fill="white"/>
     </g>
 
     <g id="legs">
       <g id="leg">
-        <line id="top" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
-        <line id="bottom" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
-
+        <line id="top" transform="translate(0,-60)" x1="0" y1="0" x2="0" y2="60" stroke="red" stroke-width="4"/>
       </g>
+
       <g id="ski">
-        <line id="ski" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
-        <line id="ski_tip" transform="translate(158,260)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+        <line id="ski" transform="translate(-60,0)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
+        <line id="ski_tip" transform="translate(58,0)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
       </g>
     </g>
   </g>
 </defs>
 
-<use href="#ski-man" transform="translate(0,0)"/>
+<use href="#ski-man" x="300" y="300"/>
 
 </svg>
