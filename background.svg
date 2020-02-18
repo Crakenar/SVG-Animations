@@ -218,21 +218,146 @@
     <g id='sky'>
         <rect width='800' height='500' fill='rgb(135 206 235)' />
     </g>
+    <!--cloud-->
+    <g id="cloud" transform="scale(0.2)">
+        <path  class="cloud" fill="white"
+      d="M61.8,55.8
+      c-33.4,4.2-57,34.7-52.7,68c3.9,31,30.5,53.5,61,53.2c0,0.3,0.1,0.6,0.1,0.8c3,23.3,24.2,39.7,47.5,36.8
+      c13.5-1.7,24.8-9.6,31.2-20.5c11.1,17.6,31.8,28.2,53.9,25.4c23-2.9,40.9-19.5,46.6-40.6c4.2,0.5,8.5,0.5,12.8,0
+      c28.5-3.6,48.6-29.6,45-58c-2.3-18.1-13.7-32.8-28.9-40.2c0-2.4-0.1-4.8-0.4-7.2c-3.5-27.6-28.7-47.1-56.3-43.6
+      c-6.7,0.8-12.9,3-18.5,6.1c-12.6-21-36.7-33.7-62.5-30.4c-28.3,3.6-49.9,25.3-54.6,52.1"/>
+    </g>
+    <!-- moving cloud -->
+    <g id="moving-cloud">
+        <use xlink:href="#cloud" x="40" y="60" />
+        <use xlink:href="#cloud" x="55" y="10" />
+        <use xlink:href="#cloud" x="280" y="20" />
+        <use xlink:href="#cloud" x="480" y="60" />
+        <use xlink:href="#cloud" x="120" y="80" />
+        <use xlink:href="#cloud" x="340" y="60" />
+        <use xlink:href="#cloud" x="300" y="10" />
+        <use xlink:href="#cloud" x="580" y="20" />
+        <use xlink:href="#cloud" x="680" y="100" />
+    </g>
+    <!-- moving cloud slow -->
+    <g id="moving-cloud-slow">
+      <g transform="translate(0,0)">
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+      </g>
+
+      <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="800 0"
+                                dur="60s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+    <!-- moving cloud slow -->
+    <g id="moving-cloud-fast">
+      <g transform="translate(0,-20) scale(0.5) rotate(180)">
+        <use xlink:href="#moving-cloud" x="-1600" y="0" />
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+        <use xlink:href="#moving-cloud" x="800" y="0" />
+      </g>
+
+      <g transform="translate(0,0) scale(0.5)">
+        <use xlink:href="#moving-cloud" x="-1600" y="0" />
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+        <use xlink:href="#moving-cloud" x="800" y="0" />
+      </g>
+
+      <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="800 0"
+                                dur="120s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <g id="moving-cloud-fast">
+
+    </g>
+    <!-- ski-man -->
+    <g id="ski-man" transform="scale(0.2)">
+      <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
+      <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+
+      <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+
+      <g id="hat">
+        <rect id="bottom" transform="translate(79,90)" width="42" height="5" fill="white"/>
+        <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0" fill="red"/>
+        <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3" fill="white"/>
+      </g>
+
+      <g id="legs">
+        <g id="leg">
+          <line id="top" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+          <line id="bottom" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+
+        </g>
+        <g id="ski">
+          <line id="ski" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
+          <line id="ski_tip" transform="translate(158,260)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+        </g>
+      </g>
+    </g>
+
+    <g id="line">
+      <path id="jump-Line" d="M 0 100 q 100 0 400 -150 L 800 -50" stroke="blue"
+        stroke-width="5" fill="none"/>
+        <animateMotion
+          xlink:href="#ski-man" rotate="0" fill="freeze"
+          calcMode = "paced"
+          begin = "0s" dur="10s">
+          <mpath xlink:href="#jump-Line" />
+        </animateMotion>
+    </g>
+    <!-- background-->
+    <g id="background">
+      <use xlink:href="#sky" x="0" y="0" />
+      <g transform="translate(0,300)">
+        <rect width='800' height='205' fill='white' />
+      </g>
+      <use xlink:href="#mountain" x="100" y="50" />
+      <g transform="translate(200,0)">
+        <use xlink:href="#tree" x="0" y="100" />
+        <use xlink:href="#tree" x="50" y="95" />
+        <use xlink:href="#tree" x="180" y="100" />
+        <use xlink:href="#tree" x="290" y="85" />
+      </g>
+    </g>
+    <!-- background zoom -->
+    <g id="background-zoom">
+      <use xlink:href="#background" x="0" y="0" />
+      <animateTransform id="backgroundZoom" attributeName="transform" type="scale"
+                                from="1"
+                                to="2"
+                                dur="2s"
+                                begin="0s"
+                                />
+    </g>
+
   </defs>
 
 
-<use xlink:href="#sky" x="0" y="0" />
-<g transform="translate(0,300)">
-  <rect width='800' height='205' fill='white' />
-</g>
-<use xlink:href="#mountain" x="100" y="50" />
-<g transform="translate(200,0)">
-  <use xlink:href="#tree" x="0" y="100" />
-  <use xlink:href="#tree" x="50" y="95" />
-  <use xlink:href="#tree" x="180" y="100" />
-  <use xlink:href="#tree" x="290" y="85" />
-</g>
+<use xlink:href="#background-zoom" x="0" y="0" />
 
 <use xlink:href="#snow-animation-fast" x="0" y="0" />
 <use xlink:href="#snow-animation-slow" x="40" y="0" />
+
+<use xlink:href="#moving-cloud-slow" x="0" y="0" />
+<use xlink:href="#moving-cloud-fast" x="100" y="100" />
+
+<use xlink:href="#ski-man" x="0" y="100" />
+
+
+
+
+
 </svg>
