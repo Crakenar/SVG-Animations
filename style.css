@@ -1,0 +1,9 @@
+
+
+circle {animation: col 4s ;}
+
+@keyframes col {
+  0%,50% {fill:yellow}
+  50%,75% {fill:orange}
+  75%,100% {fill:red}
+}

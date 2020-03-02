@@ -1,14 +1,10 @@
-/* Style sheet for the handson event */
+/*probleme, la tête du skieur et le soleil sont aussi des cercles*/
 
+circle {animation: col 4s ;
+    animation-delay: 10s;}
 
-
-
-rect.background {fill:#eeeeff;stroke:none}
-.outline {stroke:black; fill:none; stroke-width:3}
-.thin {stroke:black; fill:none; stroke-width:1}
-.filled {stroke:none; fill:lemonchiffon}
-.both {stroke:black; stroke-width:3; fill:lemonchiffon}
-
-text.boat      {font-family:Arial;font-size:10; font-weight:bold; fill:#0C469C; font-style:italic}
-
-
+@keyframes col {
+  0%,50% {fill:yellow}
+  50%,75% {fill:orange}
+  75%,100% {fill:red}
+}

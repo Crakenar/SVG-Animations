@@ -1,0 +1,56 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="style.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="750" height="500" viewBox="0 0 750 500" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <defs>
+    <circle id="smoke" cx = "0" cy="0" r="0"></circle>
+    <!--
+ <g id="cloud" transform="scale(0.2)">
+     <path  class="cloud" fill="white"
+   d="M61.8,55.8
+   c-33.4,4.2-57,34.7-52.7,68c3.9,31,30.5,53.5,61,53.2c0,0.3,0.1,0.6,0.1,0.8c3,23.3,24.2,39.7,47.5,36.8
+   c13.5-1.7,24.8-9.6,31.2-20.5c11.1,17.6,31.8,28.2,53.9,25.4c23-2.9,40.9-19.5,46.6-40.6c4.2,0.5,8.5,0.5,12.8,0
+   c28.5-3.6,48.6-29.6,45-58c-2.3-18.1-13.7-32.8-28.9-40.2c0-2.4-0.1-4.8-0.4-7.2c-3.5-27.6-28.7-47.1-56.3-43.6
+   c-6.7,0.8-12.9,3-18.5,6.1c-12.6-21-36.7-33.7-62.5-30.4c-28.3,3.6-49.9,25.3-54.6,52.1"/>
+ </g>
+  
+  <polygon id="etoile" points="50,9 60.5,39.5 92.7,40.1 67,59.5 76.4,90.3 50,71.9 23.6,90.3 32.9,59.5 7.2,40.1 39.4,39.5" />
+  https://stackoverflow.com/questions/32556777/how-to-fade-in-and-out-color-of-svg
+  -->
+
+
+
+  <!-- Declaring The animation of the explosions-->
+  
+  <g id="explosion" transform="translate(100,100)">
+    <use x="0" y="0" xlink:href="#smoke"> </use>
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="0s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="2s" dur="2s" />
+  </g>
+
+  <g id="explosion2" transform="translate(120,120)">
+    <use x="0" y="0" xlink:href="#smoke"> </use>
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="0.5s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="1s" dur="2s" />
+  </g>
+
+  <g id="BoomBoomBomm">
+    <use x="0" y="0" xlink:href="#explosion"/>
+    <use x="10" y="10" xlink:href="#explosion"/>
+    <use x="-10" y="0" xlink:href="#explosion"/>
+    <use x="-15" y="15" xlink:href="#explosion"/>
+    <use x="-30" y="-15" xlink:href="#explosion"/>
+    <use x="-0" y="35" xlink:href="#explosion"/>
+    <use x="30" y="10" xlink:href="#explosion2"/>
+    <use x="-30" y="10" xlink:href="#explosion"/>
+    <use x="30" y="10" xlink:href="#explosion"/>
+    <use x="20" y="-30" xlink:href="#explosion"/>
+    <use x="30" y="-20" xlink:href="#explosion"/>
+  </g>
+
+  </defs>
+
+  <use x="0" y="0" xlink:href="#BoomBoomBomm"/>
+  <use x="100" y="100" xlink:href="#cloud"/>
+
+</svg>
+

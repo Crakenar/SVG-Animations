@@ -2,7 +2,44 @@
 <?xml-stylesheet type="text/css" href="handson.css" ?> 
 <svg xmlns="http://www.w3.org/2000/svg" width="750" height="500" viewBox="0 0 750 500" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
+
 <defs>
+    <circle id="smoke" cx = "0" cy="0" r="0"></circle>
+  <!-- Declaring The animation of the explosions-->
+  
+  <g id="explosion" transform="translate(100,100)">
+    <use x="0" y="0" xlink:href="#smoke"> </use>
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="10s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="12s" dur="2s" />
+  </g>
+
+  <g id="explosion2" transform="translate(120,120)">
+    <use x="0" y="0" xlink:href="#smoke"> </use>
+    <!-- use id.begin id.end-->
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="10.5s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="11s" dur="2s" />
+  </g>
+
+  <g id="BoomBoomBomm">
+    <use x="0" y="0" xlink:href="#explosion"/>
+    <use x="10" y="10" xlink:href="#explosion"/>
+    <use x="-10" y="0" xlink:href="#explosion"/>
+    <use x="-15" y="15" xlink:href="#explosion"/>
+    <use x="-30" y="-15" xlink:href="#explosion"/>
+    <use x="-0" y="35" xlink:href="#explosion"/>
+    <use x="30" y="10" xlink:href="#explosion2"/>
+    <use x="-30" y="10" xlink:href="#explosion"/>
+    <use x="30" y="10" xlink:href="#explosion"/>
+    <use x="20" y="-30" xlink:href="#explosion"/>
+    <use x="30" y="-20" xlink:href="#explosion"/>
+  </g>
+
+  </defs>
+
+<defs>
+
+
+
     <!--BackGround -->
     <linearGradient id="DegradeSoleil" x1="0%" y1="0%" x2="100%" y2="0%"> 
         <stop offset="0%" style="stop-color:(255,255,0);stop-opacity:1"/>
@@ -16,13 +53,286 @@
     <rect id="sol" width="750" height="300" fill="green" />
 </defs>
 
+  <defs>
+    <!--Mountain -->
+    <g  id='mountain' transform="translate(0,0)">
+      <g transform="translate(-500,0)">
+        <polygon points="200,300 400,0 550,300" fill="grey" />
+        <polygon points="366,50 400,0 425,50" fill="white" />
+      </g>
+      <g transform="translate(0,0)">
+        <polygon points="-100,300 100,0 200,300" fill="grey" />
+        <polygon points="66,50 100,0 118,50" fill="white" />
+      </g>
+      <g transform="translate(0,0)">
+        <polygon points="100,300 200,70 350,300" fill="grey" />
+        <polygon points="186,100 200,70 220,100" fill="white" />
+      </g>
+      <g transform="translate(0,0)">
+        <polygon points="200,300 400,0 550,300" fill="grey" />
+        <polygon points="366,50 400,0 425,50" fill="white" />
+      </g>
+      <g transform="translate(-50,0)">
+        <polygon points="450,300 650,70 750,300" fill="grey" />
+        <polygon points="623,100 650,70 664,100" fill="white" />
+      </g>
+    </g>
+    <!--Tree -->
+    <g  id='tree' transform="translate(100,100)">
+        <!--leafs -->
+        <g>
+          <polygon points="0,120 50,100 100,120" fill="rgb(9,82,40)" />
+          <polygon points="5,110 50,90 95,110" fill="rgb(9,82,40)" />
+          <polygon points="10,100 50,80 90,100" fill="rgb(9,82,40)" />
+          <polygon points="15,90 50,70 85,90" fill="rgb(9,82,40)" />
+          <polygon points="20,80 50,65 80,80" fill="rgb(9,82,40)" />
+          <polygon points="30,70 50,50 70,70" fill="rgb(9,82,40)" />
+          <polygon points="30,70 50,50 70,70" fill="white" />
+        </g>
+        <!--trunk -->
+        <g transform="translate(46,120)">
+          <rect width='8' height='20' fill='brown' />
+        </g>
+    </g>
 
+    <!--snow branch -->
+      <g id='snow-branch'>
+
+        <rect x="0" y="0" rx="5" ry="5" width="150" height="10"
+            style="fill:white;opacity:0.5" />
+        <g transform="translate(10,-20) scale(0.5)" >
+            <polyline points="0,0 50,50 0,100"
+              style="fill:none;stroke:white;stroke-width:8;opacity:0.5" />
+        </g>
+        <g transform="translate(138,30) scale(0.5) rotate(180)" >
+            <polyline points="0,0 50,50 0,100"
+              style="fill:none;stroke:white;stroke-width:8;opacity:0.5" />
+        </g>
+      </g>
+    <!--snow-flake -->
+    <g  id='snow' transform="translate(0,0)">
+      <use xlink:href="#snow-branch" x="0" y="0" />
+      <g transform="translate(0,0) rotate(120 75 5)" >
+        <use xlink:href="#snow-branch" x="0" y="0" />
+      </g>
+      <g transform="translate(0,0) rotate(240 75 5)" >
+        <use xlink:href="#snow-branch" x="0" y="0" />
+      </g>
+    </g>
+    <!--snow groupe -->
+    <g  id='snow-groupe' transform="translate(0,0)">
+      <g transform="scale(0.1)">
+        <use xlink:href="#snow" x="0" y="0" />
+        <use xlink:href="#snow" x="1000" y="1000" />
+        <use xlink:href="#snow" x="500" y="562" />
+        <use xlink:href="#snow" x="2000" y="152" />
+        <use xlink:href="#snow" x="1235" y="230" />
+        <use xlink:href="#snow" x="2569" y="784" />
+        <use xlink:href="#snow" x="2258" y="985" />
+      </g>
+    </g>
+
+    <!--snow fall -->
+    <g  id='snow-fall' transform="translate(0,0)">
+      <g transform="translate(0,0)">
+        <use xlink:href="#snow-groupe" x="0" y="0" />
+        <use xlink:href="#snow-groupe" x="300" y="0" />
+        <use xlink:href="#snow-groupe" x="600" y="0" />
+
+        <use xlink:href="#snow-groupe" x="0" y="100" />
+        <use xlink:href="#snow-groupe" x="300" y="100" />
+        <use xlink:href="#snow-groupe" x="600" y="100" />
+
+        <use xlink:href="#snow-groupe" x="0" y="200" />
+        <use xlink:href="#snow-groupe" x="300" y="200" />
+        <use xlink:href="#snow-groupe" x="600" y="200" />
+
+        <use xlink:href="#snow-groupe" x="0" y="300" />
+        <use xlink:href="#snow-groupe" x="300" y="300" />
+        <use xlink:href="#snow-groupe" x="600" y="300" />
+
+        <use xlink:href="#snow-groupe" x="0" y="400" />
+        <use xlink:href="#snow-groupe" x="300" y="400" />
+        <use xlink:href="#snow-groupe" x="600" y="400" />
+      </g>
+    </g>
+
+    <!--snow-animation slow-->
+    <g  id='snow-animation-slow' transform="translate(0,0)">
+
+      <g transform="translate(0,0) rotate(180 400 0)">
+        <use xlink:href="#snow-fall" x="0" y="-500" />
+        <use xlink:href="#snow-fall" x="0" y="0" />
+      </g>
+      <animateTransform id="snowFallStart" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="0 500"
+                                dur="4s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <!--snow-animation fast-->
+    <g  id='snow-animation-fast' transform="translate(0,0)">
+
+      <g transform="translate(0,0)">
+        <use xlink:href="#snow-fall" x="0" y="-500" />
+        <use xlink:href="#snow-fall" x="0" y="0" />
+      </g>
+      <animateTransform id="snowFallStart" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="0 500"
+                                dur="8s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <!--sky-->
+    <g id='sky'>
+        <rect width='800' height='500' fill='rgb(135 206 235)' />
+    </g>
+    <!--cloud-->
+    <g id="cloud" transform="scale(0.2)">
+        <path  class="cloud" fill="white"
+      d="M61.8,55.8
+      c-33.4,4.2-57,34.7-52.7,68c3.9,31,30.5,53.5,61,53.2c0,0.3,0.1,0.6,0.1,0.8c3,23.3,24.2,39.7,47.5,36.8
+      c13.5-1.7,24.8-9.6,31.2-20.5c11.1,17.6,31.8,28.2,53.9,25.4c23-2.9,40.9-19.5,46.6-40.6c4.2,0.5,8.5,0.5,12.8,0
+      c28.5-3.6,48.6-29.6,45-58c-2.3-18.1-13.7-32.8-28.9-40.2c0-2.4-0.1-4.8-0.4-7.2c-3.5-27.6-28.7-47.1-56.3-43.6
+      c-6.7,0.8-12.9,3-18.5,6.1c-12.6-21-36.7-33.7-62.5-30.4c-28.3,3.6-49.9,25.3-54.6,52.1"/>
+    </g>
+    <!-- moving cloud -->
+    <g id="moving-cloud">
+        <use xlink:href="#cloud" x="40" y="60" />
+        <use xlink:href="#cloud" x="55" y="10" />
+        <use xlink:href="#cloud" x="280" y="20" />
+        <use xlink:href="#cloud" x="480" y="60" />
+        <use xlink:href="#cloud" x="120" y="80" />
+        <use xlink:href="#cloud" x="340" y="60" />
+        <use xlink:href="#cloud" x="300" y="10" />
+        <use xlink:href="#cloud" x="580" y="20" />
+        <use xlink:href="#cloud" x="680" y="100" />
+    </g>
+    <!-- moving cloud slow -->
+    <g id="moving-cloud-slow">
+      <g transform="translate(0,0)">
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+      </g>
+
+      <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="800 0"
+                                dur="60s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+    <!-- moving cloud slow -->
+    <g id="moving-cloud-fast">
+      <g transform="translate(0,-20) scale(0.5) rotate(180)">
+        <use xlink:href="#moving-cloud" x="-1600" y="0" />
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+        <use xlink:href="#moving-cloud" x="800" y="0" />
+      </g>
+
+      <g transform="translate(0,0) scale(0.5)">
+        <use xlink:href="#moving-cloud" x="-1600" y="0" />
+        <use xlink:href="#moving-cloud" x="-800" y="0" />
+        <use xlink:href="#moving-cloud" x="0" y="0" />
+        <use xlink:href="#moving-cloud" x="800" y="0" />
+      </g>
+
+      <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate"
+                                from="0 0"
+                                to="800 0"
+                                dur="120s"
+                                begin="0s"
+                                repeatCount="indefinite"
+                                />
+    </g>
+
+    <g id="moving-cloud-fast">
+
+    </g>
+    <!-- ski-man -->
+    <g id="ski-man" transform="scale(0.2)">
+      <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
+      <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+
+      <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+
+      <g id="hat">
+        <rect id="bottom" transform="translate(79,90)" width="42" height="5" fill="white"/>
+        <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0" fill="red"/>
+        <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3" fill="white"/>
+      </g>
+
+      <g id="legs">
+        <g id="leg">
+          <line id="top" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+          <line id="bottom" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+
+        </g>
+        <g id="ski">
+          <line id="ski" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
+          <line id="ski_tip" transform="translate(158,260)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+        </g>
+      </g>
+    </g>
+
+    <g id="line">
+      <path id="jump-Line" d="M0 100 L100 100  q 150 -300 350 200" 
+        stroke-width="5" fill="none"/>
+        <animateMotion
+          xlink:href="#ski-man" rotate="0" fill="freeze"
+          calcMode = "paced"
+          begin = "0s" dur="10s">
+          <mpath xlink:href="#jump-Line" />
+        </animateMotion>
+    </g>
+
+
+
+    <!-- background-->
+    <g id="background">
+      <use xlink:href="#sky" x="0" y="0" />
+      <g transform="translate(0,300)">
+        <rect width='800' height='205' fill='white' />
+      </g>
+      <use xlink:href="#mountain" x="100" y="50" />
+      <g transform="translate(200,0)">
+        <use xlink:href="#tree" x="0" y="100" />
+        <use xlink:href="#tree" x="50" y="95" />
+        <use xlink:href="#tree" x="180" y="100" />
+        <use xlink:href="#tree" x="290" y="85" />
+      </g>
+    </g>
+
+  </defs>
+  
 <!--Drawing the BackGround -->
-<use href="#montagne1" />
-<use href="#montagne1" transform="translate(40,0)"/>
-<use href="#montagne1" transform="translate(100,0)"/>
-<use href="#montagne2"  transform="translate(160,0)"/>
-<use href="#montagne2"  transform="translate(210,0)"/>
+  <!--Implementing the charasteristiques of the House -->
+<defs>
+    <rect id="basement" width="100" height="60" fill="brown" />
+    
+    <polygon id="roof" points="400,390 450,340 500,390" fill="brown" />
+</defs>
+
+
+
+
+
+<!-- Drawing the path for the competitor going from the left side
+of the window to the house-->
+
+      <use xlink:href="#background" x="0" y="0" />
+      <use xlink:href="#snow-animation-fast" x="0" y="0" />
+      <use xlink:href="#snow-animation-slow" x="40" y="0" />
+      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
+      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
 <g>
     <use href="#Soleil" transform="translate(50,50)"/>
     <use href="#rayons"/>
@@ -40,29 +350,19 @@
     <animateTransform id="rotationRayons" attributeName="transform" attributeType="XML" type="rotate" from="0 50 50" to="360 50 50" dur="10s" repeatCount="indefinite" />   
 </g>
 
-
-<use href="#sol" transform="translate(0,300)"/>
-
-<defs>
-    <!--Implementing the charasteristiques of the House -->
-    <rect id= "wallsLeft/Right" width="5" height="60" fill="brown" />
-    <rect id= "wallsTop/Bottom" width="90" height="5" fill="brown" />
-    <polygon id="roof" points="300,400 345,350 390,400" fill="brown" />
-    <rect id="door" width="100" height="100" />
-</defs>
-
 <!-- Drawing the house-->
-<use href="#wallsLeft/Right" transform="translate(300,400)"/>
-<use href="#wallsLeft/Right" transform="translate(385,400)"/>
-<use href="#wallsTop/Bottom" transform="translate(300,400)"/>
-<use href="#wallsTop/Bottom" transform="translate(300,460)"/>
-<use href="#roof"/>
+<use href="#basement" transform="translate(400,290)"/>
+<use href="#roof" transform="translate(0,-100)"/>
 
+  <use x="350" y="200" xlink:href="#BoomBoomBomm"/>
 
-<!-- Drawing the path for the competitor going from the left side
-of the window to the house-->
-<path  fill="transparent" stroke="#000000" stroke-width="0.1"  
-    d="M 10 80 C 40 10, 65 10, 95 80 S 150 150, 180 80"  />
+    <g>
+    <use href="#ski-man" />
+        <!--  <animateTransform attributeName="transform" attributeType="XML" type="rotate"
+                          from="0 50 300"
+                          to="360 0 0"
+                          dur="2s"
+                          repeatCount="3"/></g>-->
 
 
 </svg>
