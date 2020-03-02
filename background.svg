@@ -119,7 +119,13 @@
           <rect width='8' height='20' fill='brown' />
         </g>
     </g>
-
+    <!--Group of Tree -->
+    <g  id='group_tree' transform="translate(0,0)">
+      <use xlink:href="#tree" x="0" y="100" />
+      <use xlink:href="#tree" x="50" y="95" />
+      <use xlink:href="#tree" x="180" y="100" />
+      <use xlink:href="#tree" x="290" y="85" />
+    </g>
     <!--snow branch -->
       <g id='snow-branch'>
 
@@ -309,43 +315,41 @@
     </g>
 
     <g id="line">
-      <path id="jump-Line" d="M 0 100 q 100 0 400 -150 L 800 -50" stroke="blue"
+      <path id="jump-Line" d="M 0 100 q 100 0 400 -150 L 800 -50" 
         stroke-width="5" fill="none"/>
         <animateMotion
           xlink:href="#ski-man" rotate="0" fill="freeze"
           calcMode = "paced"
-          begin = "0s" dur="10s">
+          begin = "0s" dur="5">
           <mpath xlink:href="#jump-Line" />
         </animateMotion>
     </g>
+
     <!-- background-->
     <g id="background">
+
       <use xlink:href="#sky" x="0" y="0" />
       <g transform="translate(0,300)">
         <rect width='800' height='205' fill='white' />
       </g>
       <use xlink:href="#mountain" x="100" y="50" />
-      <g transform="translate(200,0)">
-        <use xlink:href="#tree" x="0" y="100" />
-        <use xlink:href="#tree" x="50" y="95" />
-        <use xlink:href="#tree" x="180" y="100" />
-        <use xlink:href="#tree" x="290" y="85" />
-      </g>
+      <use xlink:href="#group_tree" x="0" y="0" />
+      <use xlink:href="#group_tree" x="200" y="0" />
     </g>
 
   </defs>
   
-      <use xlink:href="#background" x="0" y="0" />
+  <!-- BEGIN Display-->
+  <use xlink:href="#background" x="0" y="0" />
+  <use xlink:href="#background" x="800" y="0" />
 
-      <use xlink:href="#snow-animation-fast" x="0" y="0" />
-      <use xlink:href="#snow-animation-slow" x="40" y="0" />
+  <use xlink:href="#snow-animation-fast" x="0" y="0" />
+  <use xlink:href="#snow-animation-slow" x="40" y="0" />
 
-      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
-      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
+  <use xlink:href="#moving-cloud-slow" x="0" y="0" />
+  <use xlink:href="#moving-cloud-fast" x="100" y="100" />
 
-      <use xlink:href="#ski-man" x="0" y="100" />
-
-
-
-
+  <use xlink:href="#ski-man" x="0" y="100" />
+  <use xlink:href="#line" x="0" y="100" />
+  <!-- END Display-->
 </svg>

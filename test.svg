@@ -7,7 +7,8 @@
   <defs>
     <g id="ski-piste">
       <path id="début" d="M0 100 L 60 100"/>
-      <path id="piste" d="M60 100 C 80 100,90 120, 90 120 S 150 300, 500 350" />
+      <path id="piste1" d="M60 100 C 80 100,90 120, 90 120 S 150 300, 500 350" />
+   
       <path id="tremplin" d="M500 350 C 550,350 600,350 650,300"/>
       <path id="vol" d="M650 300 L 900 50"/>
     </g>
@@ -39,8 +40,9 @@
     </g>
   </defs>
 
-    <use href="#ski-man" x="0" y="-2" />
+    <use href="#ski-man" x="0" y="0" />
     <use href="#ski-piste" x="0" y="0"/>
+
     <animateMotion
       id="début_piste"
       xlink:href="#ski-man" rotate="auto" fill="freeze"
@@ -49,22 +51,26 @@
       dur="5s">
       <mpath xlink:href="#début"/>
     </animateMotion>
+
     <animateMotion
       id="descente_piste"
       xlink:href="#ski-man" rotate="auto" fill="freeze"
       calcMode="paced"
       begin="début_piste.end"
-      dur="10s">
+      dur="3s">
       <mpath xlink:href="#piste"/>
     </animateMotion>
+
     <animateMotion
       id="descente_tremplin"
       xlink:href="#ski-man" rotate="auto" fill="freeze"
       calcMode="paced"
       begin="descente_piste.end"
-      dur="2s">
+      dur="0.5s">
       <mpath xlink:href="#tremplin"/>
-      <animateMotion
+    </animateMotion>
+
+    <animateMotion
         id="descente_vol"
         xlink:href="#ski-man" rotate="auto" fill="freeze"
         calcMode="paced"
