@@ -334,8 +334,7 @@
     </g>
 
   </defs>
-<g>
-  <g transform="translate(0 0) scale(1)">
+  
       <use xlink:href="#background" x="0" y="0" />
 
       <use xlink:href="#snow-animation-fast" x="0" y="0" />
@@ -345,20 +344,7 @@
       <use xlink:href="#moving-cloud-fast" x="100" y="100" />
 
       <use xlink:href="#ski-man" x="0" y="100" />
-    </g>
-    <animateTransform id="backgroundZoom" attributeName="transform" type="scale"
-                              from="1"
-                              to="4"
-                              dur="2s"
-                              begin="0s"
-                              />
-  <animateTransform id="backgroundZoom" attributeName="transform" type="translate"
-                            from="0 0"
-                            to="-400 -100"
-                            dur="1s"
-                            begin="0s"
-                            />
-</g>
+
 
 
 
