@@ -5,26 +5,12 @@
   stroke-width:2;
 }
 
-#piste1 {
+#piste {
   stroke:red;
   stroke-width:2;
   fill:transparent;
 }
-#piste2 {
-  stroke:green;
-  stroke-width:2;
-  fill:transparent;
-}
-#piste3 {
-  stroke:yellow;
-  stroke-width:2;
-  fill:transparent;
-}
-#piste4 {
-  stroke:blue;
-  stroke-width:2;
-  fill:transparent;
-}
+
 
 #tremplin {
   stroke:black;

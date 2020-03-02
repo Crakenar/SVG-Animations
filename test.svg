@@ -7,8 +7,7 @@
   <defs>
     <g id="ski-piste">
       <path id="début" d="M0 100 L 60 100"/>
-      <path id="piste1" d="M60 100 C 80 100,90 120, 90 120 S 150 300, 500 350" />
-   
+      <path id="piste" d="M60 100 C 80 100,90 120, 90 120 S 150 300, 500 350" />
       <path id="tremplin" d="M500 350 C 550,350 600,350 650,300"/>
       <path id="vol" d="M650 300 L 900 50"/>
     </g>
@@ -78,5 +77,26 @@
         dur="1s">
         <mpath xlink:href="#vol"/>
     </animateMotion>
+
+
+   <animate 
+           xlink:href="#orange-circle"
+           attributeName="cy"
+           from="50"
+           to="250" 
+           dur="3s"
+           begin="click"
+           calcMode="spline"
+           values="50; 250; 120; 250; 170; 250; 210; 250"
+           keyTimes="0; 0.15; 0.3; 0.45; 0.6; 0.75; 0.9; 1"
+           keySplines="0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1;
+                       0 0 0.59 1;
+                       0.42 0 1 1"
+           fill="freeze"  
+           id="circ-anim"/>
 
 </svg>
