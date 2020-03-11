@@ -2,7 +2,31 @@
 <?xml-stylesheet type="text/css" href="handson.css" ?> 
 <svg xmlns="http://www.w3.org/2000/svg" width="750" height="500" viewBox="0 0 750 500" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
+<!--drawing the trampoline where the ski-man will jump on it-->
+<defs>
+    <!-- tissue-->
+    <ellipse id="tissueTrampoline" cx = "0" cy="0" rx="30" ry="10"></ellipse>
+    <rect id="TrampolineFoot" width="3" height="10" ></rect>
+    <text id="textTrampoline" opacity=".0" x ="0" y="0">Boing !</text>
 
+    <g id="trampoline" transform="translate(100,330)">
+      <use xlink:href="#tissueTrampoline" ></use>
+      <use xlink:href="#TrampolineFoot" x="0" y="10"></use>
+      <use xlink:href="#TrampolineFoot" x="20" y="7"></use>
+      <use xlink:href="#TrampolineFoot" x="-20" y="7"></use>  
+      <use href="#textTrampoline"></use>
+    </g>
+    
+    <g id="animationTrampoline">
+      <use href="#trampoline"></use>
+      <animate xlink:href="#textTrampoline" attributeName="opacity" from="0" to="1" dur="1s" begin="3s"></animate>
+      <animate xlink:href="#textTrampoline" attributeName="opacity" from="1" to="0" dur="1s" begin="4s"></animate>
+    </g>
+    
+</defs>
+
+
+<!--Defining all the elements for the explosions-->
 <defs>
     <circle id="smoke" cx = "0" cy="0" r="0"></circle>
   <!-- Declaring The animation of the explosions-->
@@ -258,7 +282,7 @@
 
     </g>
     <!-- ski-man -->
-    <g id="ski-man" transform="scale(0.2)">
+    <g id="ski-man" transform="scale(0.2)" opacity="1.0">
       <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
       <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
 
@@ -283,17 +307,39 @@
       </g>
     </g>
 
-    <g id="line">
-      <path id="jump-Line" d="M0 100 L100 100  q 150 -300 350 200" 
+<!-- line for the ski-man to follow-->
+
+<!--before the explosions (from the beginning until he crash-->
+    <g id="FirstAnimation">
+      <path id="jump-Line" d="M0 100 L90 270  q 150 -200 350 30" 
         stroke-width="5" fill="none"/>
-        <animateMotion
+        <animateMotion id="firstAnimation"
           xlink:href="#ski-man" rotate="0" fill="freeze"
           calcMode = "paced"
-          begin = "0s" dur="10s">
+          begin = "0s" dur="10s"> <!--mettre 10 s pour le final-->
           <mpath xlink:href="#jump-Line" />
         </animateMotion>
     </g>
 
+<!--line for the ski-man being ejected due to the explosions -->
+  <g id="SecondAnimation">
+      <path id="Explosionjump-Line" d="M440 300 L600 100 " 
+        stroke-width="5" fill="none"/>
+        <animateMotion
+          id="secondAnimation"
+          xlink:href="#ski-man" rotate="0" fill="freeze"
+          calcMode = "paced"
+          begin = "firstAnimation.end" dur="3s"> <!--mettre 10 s pour le final-->
+          <mpath xlink:href="#Explosionjump-Line" />
+        </animateMotion>
+        <animateTransform attributeName="transform" xlink:href="#ski-man" type="scale" from="0.2 0.2" to="0 0" begin="firstAnimation.end" dur="4s"/>
+        <animate  xlink:href="#ski-man" attributeName="opacity"  from="1" to="0" begin="secondAnimation.end-1" dur="1s" fill="freeze"/>
+       
+    </g>
+<!-- all animations for ski-man-->
+<g id="AnimationSkiMan">
+  <use xlink:href="#ski-man"></use>
+</g>
 
 
     <!-- background-->
@@ -325,14 +371,6 @@
 
 
 
-<!-- Drawing the path for the competitor going from the left side
-of the window to the house-->
-
-      <use xlink:href="#background" x="0" y="0" />
-      <use xlink:href="#snow-animation-fast" x="0" y="0" />
-      <use xlink:href="#snow-animation-slow" x="40" y="0" />
-      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
-      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
 <g>
     <use href="#Soleil" transform="translate(50,50)"/>
     <use href="#rayons"/>
@@ -350,19 +388,25 @@ of the window to the house-->
     <animateTransform id="rotationRayons" attributeName="transform" attributeType="XML" type="rotate" from="0 50 50" to="360 50 50" dur="10s" repeatCount="indefinite" />   
 </g>
 
+
+
+<!-- Drawing the path for the competitor going from the left side
+of the window to the house-->
+
+      <use xlink:href="#background" x="0" y="0" />
+      <use xlink:href="#snow-animation-fast" x="0" y="0" />
+      <use xlink:href="#snow-animation-slow" x="40" y="0" />
+      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
+      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
+
+
 <!-- Drawing the house-->
 <use href="#basement" transform="translate(400,290)"/>
 <use href="#roof" transform="translate(0,-100)"/>
 
+<!--Put animation in place-->
   <use x="350" y="200" xlink:href="#BoomBoomBomm"/>
-
-    <g>
-    <use href="#ski-man" />
-        <!--  <animateTransform attributeName="transform" attributeType="XML" type="rotate"
-                          from="0 50 300"
-                          to="360 0 0"
-                          dur="2s"
-                          repeatCount="3"/></g>-->
-
+  <use href="#AnimationSkiMan" />
+  <use href="#animationTrampoline"></use>
 
 </svg>

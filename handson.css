@@ -1,6 +1,15 @@
 /*probleme, la tête du skieur et le soleil sont aussi des cercles*/
 
-circle {animation: col 4s ;
+/*Trampoline */
+#tissueTrampoline {
+  fill:greenyellow;
+}
+
+#TrampolineFoot{
+  fill: black;
+}
+/*Explosions */
+#smoke {animation: col 4s ;
     animation-delay: 10s;}
 
 @keyframes col {
