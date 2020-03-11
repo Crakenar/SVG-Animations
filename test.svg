@@ -81,24 +81,4 @@
     </animateMotion>
 
 
-   <animate
-           xlink:href="#orange-circle"
-           attributeName="cy"
-           from="50"
-           to="250"
-           dur="3s"
-           begin="click"
-           calcMode="spline"
-           values="50; 250; 120; 250; 170; 250; 210; 250"
-           keyTimes="0; 0.15; 0.3; 0.45; 0.6; 0.75; 0.9; 1"
-           keySplines="0.42 0 1 1;
-                       0 0 0.59 1;
-                       0.42 0 1 1;
-                       0 0 0.59 1;
-                       0.42 0 1 1;
-                       0 0 0.59 1;
-                       0.42 0 1 1"
-           fill="freeze"
-           id="circ-anim"/>
-
 </svg>

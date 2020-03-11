@@ -1,0 +1,97 @@
+/* fiche de style de l'animation "projetFinal.svg" */
+#mountainPick {
+  fill : white;
+}
+
+#rock {
+  fill : grey;
+}
+
+#tree {
+  fill : rgb(9,82,40);
+}
+
+#trunk {
+  fill : brown;
+}
+
+#snow-branch {
+  fill:none;
+  stroke:white;
+  stroke-width:8;
+  opacity:0.5
+}
+
+#sky {
+  fill : rgb(135 206 235);
+}
+
+#cloud {
+  fill : white;
+}
+
+#body {
+  fill : red;
+}
+
+#head {
+  fill : antiquewhite;
+}
+
+#battons {
+  stroke : red;
+  stroke-width : 4;
+}
+
+#hat #bottom {
+  fill : white;
+}
+
+#hat #middle{
+  fill : red;
+}
+
+#hat #top {
+  fill : white;
+}
+
+#leg{
+  stroke : red;
+  stroke-width : 4;
+}
+
+#ski {
+  stroke : red;
+  stroke-width: 4;
+}
+
+#line {
+  fill : none;
+}
+
+#background {
+  fill : white;
+}
+
+#début {
+  stroke:green;
+  stroke-width:2;
+}
+
+#piste {
+  stroke:red;
+  stroke-width:2;
+  fill:transparent;
+}
+
+
+#tremplin {
+  stroke:black;
+  stroke-width:2;
+  fill:transparent;
+}
+
+#vol {
+  stroke:blue;
+  stroke-width:2;
+}
