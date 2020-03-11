@@ -1,7 +1,7 @@
 /* fiche de style de l'animation "test.svg" */
 
 #début {
-  stroke:black;
+  stroke:green;
   stroke-width:2;
 }
 
@@ -19,6 +19,6 @@
 }
 
 #vol {
-  stroke:transparent;
+  stroke:blue;
   stroke-width:2;
 }
