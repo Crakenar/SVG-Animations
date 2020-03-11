@@ -47,16 +47,18 @@
       xlink:href="#ski-man" rotate="auto" fill="freeze"
       calcMode="paced"
       begin="0s"
-      dur="5s">
+      dur="3s">
       <mpath xlink:href="#début"/>
     </animateMotion>
 
     <animateMotion
       id="descente_piste"
       xlink:href="#ski-man" rotate="auto" fill="freeze"
-      calcMode="paced"
+      calcMode="linear"
+      keyPoints="0;0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;1"
+      keyTimes="0;0.3;0.5;0.6;0.7;0.75;0.8;0.85;0.9;0.95;1"
       begin="début_piste.end"
-      dur="3s">
+      dur="2s">
       <mpath xlink:href="#piste"/>
     </animateMotion>
 
@@ -65,7 +67,7 @@
       xlink:href="#ski-man" rotate="auto" fill="freeze"
       calcMode="paced"
       begin="descente_piste.end"
-      dur="0.5s">
+      dur="0.2s">
       <mpath xlink:href="#tremplin"/>
     </animateMotion>
 
@@ -74,16 +76,16 @@
         xlink:href="#ski-man" rotate="auto" fill="freeze"
         calcMode="paced"
         begin="descente_tremplin.end"
-        dur="1s">
+        dur="0.6s">
         <mpath xlink:href="#vol"/>
     </animateMotion>
 
 
-   <animate 
+   <animate
            xlink:href="#orange-circle"
            attributeName="cy"
            from="50"
-           to="250" 
+           to="250"
            dur="3s"
            begin="click"
            calcMode="spline"
@@ -96,7 +98,7 @@
                        0.42 0 1 1;
                        0 0 0.59 1;
                        0.42 0 1 1"
-           fill="freeze"  
+           fill="freeze"
            id="circ-anim"/>
 
 </svg>
