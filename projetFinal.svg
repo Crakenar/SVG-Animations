@@ -197,7 +197,7 @@
       <use xlink:href="#moving-cloud" x="800" y="0" />
     </g>
 
-    <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate"
+    <animateTransform id="cloud-moving-fast" attributeName="transform" type="translate"
                               from="0 0"
                               to="800 0"
                               dur="120s"
@@ -238,9 +238,10 @@
   <g id="line">
     <path id="jump-Line" d="M0 100 C 80 100,120 60, 250 40 S 300 40, 800 100"/>
       <animateMotion
+        id="flyingman"
         xlink:href="#ski-man2" rotate="0" fill="freeze"
         calcMode = "paced"
-        begin = "0s" dur="5">
+        begin = "sceneA3.end" dur="5">
         <mpath xlink:href="#jump-Line" />
       </animateMotion>
   </g>
@@ -291,6 +292,14 @@
 <!-- definition of all the different scene -->
   <!--Jumping scene -->
     <g id="JumpingScene">
+      <use xlink:href="#background" x="0" y="0" />
+      <use xlink:href="#background" x="800" y="0" />
+
+      <use xlink:href="#snow-animation-fast" x="0" y="0" />
+      <use xlink:href="#snow-animation-slow" x="40" y="0" />
+
+      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
+      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
       <use href="#ski-man1" x="0" y="0" />
       <use href="#ski-piste" x="0" y="0"/>
 
@@ -298,7 +307,7 @@
         id="début_piste"
         xlink:href="#ski-man1" rotate="auto" fill="freeze"
         calcMode="paced"
-        begin="0s"
+        begin="sceneA2.end"
         dur="3s">
         <mpath xlink:href="#début"/>
       </animateMotion>
@@ -332,6 +341,7 @@
           <mpath xlink:href="#vol"/>
       </animateMotion>
     </g>
+
   <!-- END Jumping scene-->
 
   <!-- Flying scene -->
@@ -349,16 +359,68 @@
       <use xlink:href="#line" x="0" y="100" />
     </g>
   <!-- End Flying scene -->
+
+  <!-- intro Scene -->
+    <g id="IntroScene">
+      <rect visibility="visible" x="0" y="0"  width="800" height="600" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)"/>
+      <text x="250" y="250" fill="white" font-size="50" >Rocket Man</text>
+
+
+      <use xlink:href="#ski-man1" transform="translate(-50,400)">
+        <animateTransform id="movingskiman" attributeName="transform" type="translate"
+                                    from="-50 400"
+                                    to="850 400"
+                                    dur="4s"
+                                    begin="0s"
+                                    repeatCount="1"/>
+      </use>
+      <rect visibility="visible" transform="translate(-800,0)"  width="800" height="600" style="fill:rgb(255,255,255)">
+        <animateTransform id="snowmoving" attributeName="transform" type="translate"
+                                    from="-900 0"
+                                    to="0 0"
+                                    dur="6s"
+                                    begin="0s"
+                                    repeatCount="1"/>
+      </rect>
+    </g>
+  <!-- End Into Scene -->
+
+  <!-- Credit Scene -->
+  <g id="CreditScene">
+    <rect x="0" y="0"  width="800" height="600" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)"/>
+    <text x="225" y="225" fill="white" font-size="50" >SVG Original by</text>
+    <text x="250" y="300" fill="white" font-size="50" >Berguerre Téo</text>
+    <text x="250" y="350" fill="white" font-size="50" >Bihan Baptiste</text>
+    <text x="250" y="400" fill="white" font-size="50" >Viellard Bruno</text>
+    <circle cx="725" cy="50" r="40" stroke="black" stroke-width="3" fill="#FFEDB9" />
+    <use xlink:href="#ski-man1" transform="translate(725,-100) scale(0.2) rotate(99)"/>
+    <!-- ADD SNOW-->
+  </g>
+  <!-- End Credit Scene -->
+
 </defs>
 
 <!-- BEGIN Display-->
-<use xlink:href="#JumpingScene" x="0" y="0" visibility="visible"/>
-<animateTransform id="nextScene1" attributeName="visibility" begin="1s; nextScene2.end+1s"
- from="visible" to="hidden" dur="0s" fill="freeze" />
 
-<use xlink:href="#FlyingScene" x="0" y="0" visibility="hidden"/>
-<animateTransform id="nextScene2" attributeName="visibility" begin="nextScene1.end+1s"
- from="hidden" to="visible" dur="5s"/>
+<use xlink:href="#IntroScene" x="0" y="0" visibility="visible">
+  <animate id="sceneA1" attributeName="visibility" begin="snowmoving.end"
+        from="visible" to="hidden" dur="1s" fill="freeze" />
+</use>
+
+ <use xlink:href="#JumpingScene" x="0" y="0" visibility="hidden">
+   <animate id="sceneA2" attributeName="visibility" begin="sceneA1.end"
+         from="hidden" to="visible" dur="1s" fill="freeze" />
+</use>
+
+<use xlink:href="#FlyingScene" x="0" y="0" visibility="hidden">
+  <animate id="sceneA3" attributeName="visibility" begin="descente_vol.end"
+        from="hidden" to="visible" dur="1s" fill="freeze" />
+</use>
+
+<use xlink:href="#CreditScene" x="0" y="0" visibility="hidden">
+  <animate id="sceneA5" attributeName="visibility" begin="flyingman.end"
+        from="hidden" to="visible" dur="1s" fill="freeze" />
+</use>
 
 <!-- END Display-->
 </svg>

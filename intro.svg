@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet type="text/css" href="test.css" ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+<def>
+  <!-- ski-man scene 1 -->
+  <g id="ski-man1"  transform="scale(0.4)">
+    <ellipse id="body" transform="translate(0,-100)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
+    <circle id="head" transform="translate(0,-150)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+
+    <line id="battons" transform="translate(-50,-70)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+
+    <g id="hat">
+      <rect id="bottom" transform="translate(-21,-160)" width="42" height="5" fill="white"/>
+      <polygon id="middle" transform="translate(0,-180)" points="-21,20 21,20, 0,0" fill="red"/>
+      <circle id="top" transform="translate(0,-180)" cx="0" cy="0" r="3" fill="white"/>
+    </g>
+
+    <g id="legs">
+      <g id="leg">
+        <line id="top" transform="translate(0,-60)" x1="0" y1="0" x2="0" y2="60" stroke="red" stroke-width="4"/>
+      </g>
+
+      <g id="ski">
+        <line id="ski" transform="translate(-60,0)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
+        <line id="ski_tip" transform="translate(58,0)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+      </g>
+    </g>
+  </g>
+</def>
+
+
+  <g id="IntroScene">
+    <rect visibility="visible" x="0" y="0"  width="800" height="600" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)"/>
+    <text x="225" y="225" fill="white" font-size="50" >SVG Original by</text>
+    <text x="250" y="300" fill="white" font-size="50" >Berguerre Téo</text>
+    <text x="250" y="350" fill="white" font-size="50" >Bihan Baptiste</text>
+    <text x="250" y="400" fill="white" font-size="50" >Viellard Bruno</text>
+    <circle cx="725" cy="50" r="40" stroke="black" stroke-width="3" fill="#FFEDB9" />
+    <use xlink:href="#ski-man1" transform="translate(725,55) scale(0.2) rotate(99)"/>
+    <!-- ADD SNOW-->
+  </g>
+
+
+
+
+
+
+
+
+</svg>
