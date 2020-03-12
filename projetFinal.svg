@@ -362,7 +362,7 @@
 
   <!-- intro Scene -->
     <g id="IntroScene">
-      <rect visibility="visible" x="0" y="0"  width="800" height="600" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)"/>
+      <rect id="blackbackground" visibility="visible" x="0" y="0"  width="800" height="600"/>
       <text x="250" y="250" fill="white" font-size="50" >Rocket Man</text>
 
 
@@ -374,7 +374,7 @@
                                     begin="0s"
                                     repeatCount="1"/>
       </use>
-      <rect visibility="visible" transform="translate(-800,0)"  width="800" height="600" style="fill:rgb(255,255,255)">
+      <rect id="whiteBackground" visibility="visible" transform="translate(-800,0)"  width="800" height="600" >
         <animateTransform id="snowmoving" attributeName="transform" type="translate"
                                     from="-900 0"
                                     to="0 0"
@@ -387,13 +387,13 @@
 
   <!-- Credit Scene -->
   <g id="CreditScene">
-    <rect x="0" y="0"  width="800" height="600" style="fill:rgb(0,0,0);stroke-width:3;stroke:rgb(0,0,0)"/>
+    <rect id="blackbackground" x="0" y="0"  width="800" height="600" />
     <text x="225" y="225" fill="white" font-size="50" >SVG Original by</text>
     <text x="250" y="300" fill="white" font-size="50" >Berguerre Téo</text>
     <text x="250" y="350" fill="white" font-size="50" >Bihan Baptiste</text>
     <text x="250" y="400" fill="white" font-size="50" >Viellard Bruno</text>
-    <circle cx="725" cy="50" r="40" stroke="black" stroke-width="3" fill="#FFEDB9" />
-    <use xlink:href="#ski-man1" transform="translate(725,-100) scale(0.2) rotate(99)"/>
+    <circle id="moon" cx="725" cy="50" r="40"  />
+    <use xlink:href="#ski-man1" transform="translate(745,-125) scale(0.2) rotate(99)"/>
     <!-- ADD SNOW-->
   </g>
   <!-- End Credit Scene -->
