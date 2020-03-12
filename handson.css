@@ -1,5 +1,59 @@
 /*probleme, la tête du skieur et le soleil sont aussi des cercles*/
 
+/* CSS SCENE NUMBER 3  */
+/*////////////////////////////////////////////////////*/
+
+/*Skier */
+
+.bottomCore{
+  stroke-width: 4;
+ stroke: red;
+}
+
+
+
+/*Background */
+
+#ground{
+  fill: #EFF0EB;
+}
+
+
+
+
+/*Colors for the House */
+#door{
+  fill: brown;
+}
+
+#windowsCenter{
+  fill: #FF7B00;
+}
+
+#lineWindows{
+  fill: black;
+}
+
+#basement{
+ fill: #6e3300;
+}
+
+#roof{
+  fill :#6e3300
+}
+
+#chimney{
+  fill: black;
+}
+
+#cloudChimney{
+  fill: silver;
+}
+
+#smokeAfterExplosion{
+  fill: silver;
+}
+
 /*Trampoline */
 #tissueTrampoline {
   fill:greenyellow;
@@ -10,10 +64,13 @@
 }
 /*Explosions */
 #smoke {animation: col 4s ;
-    animation-delay: 10s;}
+    animation-delay: 6s;}
 
 @keyframes col {
   0%,50% {fill:yellow}
   50%,75% {fill:orange}
   75%,100% {fill:red}
 }
+
+
+
