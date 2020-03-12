@@ -2,6 +2,12 @@
 <?xml-stylesheet type="text/css" href="handson.css" ?> 
 <svg xmlns="http://www.w3.org/2000/svg" width="750" height="500" viewBox="0 0 750 500" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
+
+
+
+
+
+
 <!--drawing the trampoline where the ski-man will jump on it-->
 <defs>
     <!-- tissue-->
@@ -19,8 +25,8 @@
     
     <g id="animationTrampoline">
       <use href="#trampoline"></use>
-      <animate xlink:href="#textTrampoline" attributeName="opacity" from="0" to="1" dur="1s" begin="3s"></animate>
-      <animate xlink:href="#textTrampoline" attributeName="opacity" from="1" to="0" dur="1s" begin="4s"></animate>
+      <animate xlink:href="#textTrampoline" attributeName="opacity" from="0" to="1" dur="1s" begin="1.5s"></animate>
+      <animate xlink:href="#textTrampoline" attributeName="opacity" from="1" to="0" dur="1s" begin="2.5s"></animate>
     </g>
     
 </defs>
@@ -30,19 +36,20 @@
 <defs>
     <circle id="smoke" cx = "0" cy="0" r="0"></circle>
   <!-- Declaring The animation of the explosions-->
-  
   <g id="explosion" transform="translate(100,100)">
     <use x="0" y="0" xlink:href="#smoke"> </use>
-    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="10s" dur="2s" />
-    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="12s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="6s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="8s" dur="2s" />
   </g>
 
   <g id="explosion2" transform="translate(120,120)">
     <use x="0" y="0" xlink:href="#smoke"> </use>
     <!-- use id.begin id.end-->
-    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="10.5s" dur="2s" />
-    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="11s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="0px" to="20px" begin="6.5s" dur="2s" />
+    <animate xlink:href="#smoke" attributeName="r" from="20px" to="0px" begin="7s" dur="2s" />
   </g>
+
+
 
   <g id="BoomBoomBomm">
     <use x="0" y="0" xlink:href="#explosion"/>
@@ -56,6 +63,13 @@
     <use x="30" y="10" xlink:href="#explosion"/>
     <use x="20" y="-30" xlink:href="#explosion"/>
     <use x="30" y="-20" xlink:href="#explosion"/>
+    <use x="10" y="-30" xlink:href="#explosion"/>
+    <use x="-30" y="-20" xlink:href="#explosion"/>
+    <use x="30" y="30" xlink:href="#explosion"/>
+    <use x="10" y="10" xlink:href="#explosion"/>
+    <use x="-40" y="-20" xlink:href="#explosion"/>
+    <use x="-40" y="00" xlink:href="#explosion"/>
+
   </g>
 
   </defs>
@@ -65,16 +79,29 @@
 
 
     <!--BackGround -->
-    <linearGradient id="DegradeSoleil" x1="0%" y1="0%" x2="100%" y2="0%"> 
-        <stop offset="0%" style="stop-color:(255,255,0);stop-opacity:1"/>
-        <stop offset="100%" style="stop-color:(255,0,0);stop-opacity:1"/>
-    </linearGradient>
 
-    <circle id="Soleil"   cx="0" cy="0" r="30" fill="yellow"  />
-    <rect id="rayons" width="40" height="3" fill="yellow" transform="translate(50,50)"/>
-    <polygon id="montagne1" transform="translate(0,0)" points="100,100 150,300 60,300" fill="grey" />
-    <polygon id="montagne2" transform="translate(0,0)" points="130,100 150,300 60,300" fill="grey" />
-    <rect id="sol" width="750" height="300" fill="green" />
+<!--drawing the sun-->
+<defs>
+      <circle id="Sun"   cx="0" cy="0" r="30" fill="yellow"  />
+      <rect id="SunLight" width="40" height="3" fill="yellow" transform="translate(50,50)"/>
+  <g id="UltimateSun">
+      <use href="#Sun" transform="translate(50,50)"/>
+      <use href="#SunLight"/>
+      <use href="#SunLight" transform="rotate(30 50 50)"/> 
+      <use href="#SunLight" transform="rotate(60 50 50)"/> 
+      <use href="#SunLight" transform="rotate(90 50 50)"/> 
+      <use href="#SunLight" transform="rotate(120 50 50)"/>
+      <use href="#SunLight" transform="rotate(150 50 50)"/>
+      <use href="#SunLight" transform="rotate(180 50 50)"/>
+      <use href="#SunLight" transform="rotate(210 50 50)"/>   
+      <use href="#SunLight" transform="rotate(240 50 50)"/> 
+      <use href="#SunLight" transform="rotate(270 50 50)"/> 
+      <use href="#SunLight" transform="rotate(300 50 50)"/>  
+      <use href="#SunLight" transform="rotate(330 50 50)"/>  
+      <animateTransform id="rotateSunLight" attributeName="transform" attributeType="XML" type="rotate" from="0 50 50" to="360 50 50" dur="10s" repeatCount="indefinite" />   
+  </g>
+</defs>
+
 </defs>
 
   <defs>
@@ -296,13 +323,13 @@
 
       <g id="legs">
         <g id="leg">
-          <line id="top" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
-          <line id="bottom" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+          <line id="top" class="bottomCore" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+          <line id="bottom" class="bottomCore" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
 
         </g>
         <g id="ski">
-          <line id="ski" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
-          <line id="ski_tip" transform="translate(158,260)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+          <line id="ski" class="bottomCore" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0"/>
+          <line id="ski_tip" class="bottomCore" transform="translate(158,260)" x1="0" y1="0" x2="0" y2="-10" />
         </g>
       </g>
     </g>
@@ -316,7 +343,7 @@
         <animateMotion id="firstAnimation"
           xlink:href="#ski-man" rotate="0" fill="freeze"
           calcMode = "paced"
-          begin = "0s" dur="10s"> <!--mettre 10 s pour le final-->
+          begin = "0s" dur="6s"> 
           <mpath xlink:href="#jump-Line" />
         </animateMotion>
     </g>
@@ -329,7 +356,7 @@
           id="secondAnimation"
           xlink:href="#ski-man" rotate="0" fill="freeze"
           calcMode = "paced"
-          begin = "firstAnimation.end" dur="3s"> <!--mettre 10 s pour le final-->
+          begin = "firstAnimation.end" dur="3s"> 
           <mpath xlink:href="#Explosionjump-Line" />
         </animateMotion>
         <animateTransform attributeName="transform" xlink:href="#ski-man" type="scale" from="0.2 0.2" to="0 0" begin="firstAnimation.end" dur="4s"/>
@@ -343,70 +370,131 @@
 
 
     <!-- background-->
-    <g id="background">
-      <use xlink:href="#sky" x="0" y="0" />
-      <g transform="translate(0,300)">
-        <rect width='800' height='205' fill='white' />
-      </g>
-      <use xlink:href="#mountain" x="100" y="50" />
-      <g transform="translate(200,0)">
-        <use xlink:href="#tree" x="0" y="100" />
-        <use xlink:href="#tree" x="50" y="95" />
-        <use xlink:href="#tree" x="180" y="100" />
-        <use xlink:href="#tree" x="290" y="85" />
-      </g>
+  <g id="background">
+    <use xlink:href="#sky" x="0" y="0" />
+    <g transform="translate(0,300)">
+      <rect id="ground" width='800' height='205'  />
     </g>
+    <use xlink:href="#mountain" x="100" y="50" />
+    <g transform="translate(200,0)">
+      <use xlink:href="#tree" x="0" y="100" />
+      <use xlink:href="#tree" x="50" y="95" />
+      <use xlink:href="#tree" x="180" y="100" />
+      <use xlink:href="#tree" x="290" y="85" />
+    </g>
+  </g>
 
-  </defs>
+</defs>
   
 <!--Drawing the BackGround -->
   <!--Implementing the charasteristiques of the House -->
 <defs>
-    <rect id="basement" width="100" height="60" fill="brown" />
+
+<!--Cloud for the chimney + animation for it-->
+<!--I DID NOT UNDERSTAND WHAT I HAVE DONE BUT IT WORKS
+    ENJOY
+-->
+ <g id="cloudChimney" transform="scale(0.1)" opacity="0" >
+        <path id="DrawcloudChimney"  class="cloud"
+      d="M61.8,55.8
+      c-33.4,4.2-57,34.7-52.7,68c3.9,31,30.5,53.5,61,53.2c0,0.3,0.1,0.6,0.1,0.8c3,23.3,24.2,39.7,47.5,36.8
+      c13.5-1.7,24.8-9.6,31.2-20.5c11.1,17.6,31.8,28.2,53.9,25.4c23-2.9,40.9-19.5,46.6-40.6c4.2,0.5,8.5,0.5,12.8,0
+      c28.5-3.6,48.6-29.6,45-58c-2.3-18.1-13.7-32.8-28.9-40.2c0-2.4-0.1-4.8-0.4-7.2c-3.5-27.6-28.7-47.1-56.3-43.6
+      c-6.7,0.8-12.9,3-18.5,6.1c-12.6-21-36.7-33.7-62.5-30.4c-28.3,3.6-49.9,25.3-54.6,52.1"/>
+  </g>
+
+   <g id="smokeAfterExplosion" transform="scale(0.1)" opacity="0" >
+        <path id="DrawcloudChimney"  class="cloud"
+      d="M61.8,55.8
+      c-33.4,4.2-57,34.7-52.7,68c3.9,31,30.5,53.5,61,53.2c0,0.3,0.1,0.6,0.1,0.8c3,23.3,24.2,39.7,47.5,36.8
+      c13.5-1.7,24.8-9.6,31.2-20.5c11.1,17.6,31.8,28.2,53.9,25.4c23-2.9,40.9-19.5,46.6-40.6c4.2,0.5,8.5,0.5,12.8,0
+      c28.5-3.6,48.6-29.6,45-58c-2.3-18.1-13.7-32.8-28.9-40.2c0-2.4-0.1-4.8-0.4-7.2c-3.5-27.6-28.7-47.1-56.3-43.6
+      c-6.7,0.8-12.9,3-18.5,6.1c-12.6-21-36.7-33.7-62.5-30.4c-28.3,3.6-49.9,25.3-54.6,52.1"/>
+  </g>
+
+ <g id="moving-cloudChimney-slow">
+      <g transform="translate(0,0)">
+        <use xlink:href="#cloudChimney" x="0" y="0" />
+      </g>
+      <animateTransform id="cloud-moving-slow" attributeName="transform" type="translate" from="0 0" to="0 -30" dur="3s" begin="0s" repeatCount="indefinite"/>
+      <animate xlink:href="#cloudChimney" attributeName="opacity" from="1" to="0" begin="0s" dur="3s" repeatCount="indefinite"></animate>
+  </g>
+
+  <g id="moving-AfterExplosion">
+    <g transform="translate(0,0)">
+      <use xlink:href="#smokeAfterExplosion" x="-30" y="70" />
+      <use xlink:href="#smokeAfterExplosion" x="-90" y="80" />
+      <use xlink:href="#smokeAfterExplosion" x="-60" y="80" />
+      <use xlink:href="#smokeAfterExplosion" x="-10" y="80" />
+      <use xlink:href="#smokeAfterExplosion" x="30" y="90" />
+    </g>
+    <animateTransform id="cloudExplosion" attributeName="transform" type="translate" from="0 0" to="0 -30" dur="3s" begin="10s" repeatCount="indefinite"/>
+    <animate xlink:href="#smokeAfterExplosion" attributeName="opacity" from="1" to="0" begin="10s" dur="3s" repeatCount="indefinite"></animate>
+  </g>
+
+
+
+    <!--Drawing the house-->
+  <rect id="basement" width="100" height="60" />
+  <polygon id="roof" points="400,390 450,340 500,390"/>
+  <rect id ="door" width="20" height="30"/>
+  <rect id="windowsCenter" width="20" height="20"/>
+  <rect id="chimney" width="10" height="30"/>
+
+  <g id="windows">
+        <use href="#windowsCenter"/>
+        <line  x1="0" y1="10" x2="20" y2="10" stroke="black"></line>
+        <line  x1="10" y1="0" x2="10" y2="20" stroke="black"></line>
+  </g>
+  <g id ="house" opacity="1.0">
+    <use href="#chimney" transform="translate(475,250)"/>
+    <use href="#basement" transform="translate(400,290)"/>
+    <use href="#roof" transform="translate(0,-100)"/>
+    <use href="#door" transform="translate(440,320)"/>
+    <use href="#windows" transform="translate(410,290)"/>
+    <use href="#windows" transform="translate(475,290)"/>
+    <use href="#moving-cloudChimney-slow" transform="translate(465,230)"></use>
+  </g>
+
+
+  <!--Drawing the house after being destroyed-->
+  <rect opacity=".0" id="debris" width="10px" height="60px"/>
+  <g id="animationHouseDestroyed">
+    <animate id="animationhouse2" xlink:href="#debris" attributeName="opacity" from="0" to="1" begin="animationHouse1.end" dur="3s" fill="freeze"/>
+    <animate id="animationHouse1" xlink:href="#house" attributeName="opacity" from="1" to="0" begin="6.5s" dur="0.1s" fill="freeze"/>   
+  </g>
     
-    <polygon id="roof" points="400,390 450,340 500,390" fill="brown" />
+  
 </defs>
 
-
-
-
-
-<g>
-    <use href="#Soleil" transform="translate(50,50)"/>
-    <use href="#rayons"/>
-    <use href="#rayons" transform="rotate(30 50 50)"/> 
-    <use href="#rayons" transform="rotate(60 50 50)"/> 
-    <use href="#rayons" transform="rotate(90 50 50)"/> 
-    <use href="#rayons" transform="rotate(120 50 50)"/>
-    <use href="#rayons" transform="rotate(150 50 50)"/>
-    <use href="#rayons" transform="rotate(180 50 50)"/>
-    <use href="#rayons" transform="rotate(210 50 50)"/>   
-    <use href="#rayons" transform="rotate(240 50 50)"/> 
-    <use href="#rayons" transform="rotate(270 50 50)"/> 
-    <use href="#rayons" transform="rotate(300 50 50)"/>  
-    <use href="#rayons" transform="rotate(330 50 50)"/>  
-    <animateTransform id="rotationRayons" attributeName="transform" attributeType="XML" type="rotate" from="0 50 50" to="360 50 50" dur="10s" repeatCount="indefinite" />   
-</g>
 
 
 
 <!-- Drawing the path for the competitor going from the left side
 of the window to the house-->
 
-      <use xlink:href="#background" x="0" y="0" />
-      <use xlink:href="#snow-animation-fast" x="0" y="0" />
-      <use xlink:href="#snow-animation-slow" x="40" y="0" />
-      <use xlink:href="#moving-cloud-slow" x="0" y="0" />
-      <use xlink:href="#moving-cloud-fast" x="100" y="100" />
+<use xlink:href="#background" x="0" y="0" />
+<use xlink:href="#snow-animation-fast" x="0" y="0" />
+<use xlink:href="#snow-animation-slow" x="40" y="0" />
+<use xlink:href="#moving-cloud-slow" x="0" y="0" />
+<use xlink:href="#moving-cloud-fast" x="100" y="100" />
 
 
 <!-- Drawing the house-->
-<use href="#basement" transform="translate(400,290)"/>
-<use href="#roof" transform="translate(0,-100)"/>
+<use href="#house" />
+
+<!-- Drawing the NEW HOUSE -->
+<use href="#debris" transform="translate(440 340) rotate(85)" ></use>
+<use href="#debris" transform="translate(460 350) rotate(-85)" ></use>
+<use href="#debris" transform="translate(450 290) rotate(10)" ></use>
+
 
 <!--Put animation in place-->
-  <use x="350" y="200" xlink:href="#BoomBoomBomm"/>
-  <use href="#AnimationSkiMan" />
-  <use href="#animationTrampoline"></use>
+<use x="350" y="200" xlink:href="#BoomBoomBomm"/>
+<use href="#AnimationSkiMan" />
+<use href="#animationTrampoline"></use>
+<use href="#UltimateSun"></use>
+<use href="#animationHouseDestroyed"></use>
+<use href="#moving-AfterExplosion" transform="translate(465,230)"></use>
 
 </svg>
