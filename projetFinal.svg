@@ -236,7 +236,7 @@
   </g>
 
   <g id="line">
-    <path id="jump-Line" d="M0 100 C 80 100,120 60, 250 40 S 300 40, 800 100"/>
+    <path id="jump-Line" d="M0 100 C 80 100,120 60, 250 40 S 300 40, 900 100"/>
       <animateMotion
         id="flyingman"
         xlink:href="#ski-man2" rotate="0" fill="freeze"
@@ -301,7 +301,13 @@
       <use xlink:href="#moving-cloud-slow" x="0" y="0" />
       <use xlink:href="#moving-cloud-fast" x="100" y="100" />
       <use href="#ski-man1" x="0" y="0" />
-      <use href="#ski-piste" x="0" y="0"/>
+      <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="4" height="4">
+        <path d="M-1,1 l2,-2
+                 M0,4 l4,-4
+                 M3,5 l2,-2"
+              style="stroke:brown; stroke-width:1" />
+      </pattern>
+      <path id="tefes" d="M0 100 L 60 100 C 80 100,90 120, 90 120 S 150 300, 500 350 C 550,350 600,350 650,300 L 650,400 L 0,400 Z" stroke="grey" fill="url(#diagonalHatch)"/>
 
       <animateMotion
         id="début_piste"
@@ -346,8 +352,8 @@
 
   <!-- Flying scene -->
     <g id="FlyingScene">
-      <use xlink:href="#background" x="0" y="0" />
-      <use xlink:href="#background" x="800" y="0" />
+      <use xlink:href="#background" x="-200" y="0" />
+      <use xlink:href="#background" x="600" y="0" />
 
       <use xlink:href="#snow-animation-fast" x="0" y="0" />
       <use xlink:href="#snow-animation-slow" x="40" y="0" />
@@ -355,14 +361,14 @@
       <use xlink:href="#moving-cloud-slow" x="0" y="0" />
       <use xlink:href="#moving-cloud-fast" x="100" y="100" />
 
-      <use xlink:href="#ski-man2" x="0" y="100"/>
+      <use xlink:href="#ski-man2" x="-100" y="100"/>
       <use xlink:href="#line" x="0" y="100" />
     </g>
   <!-- End Flying scene -->
 
   <!-- intro Scene -->
     <g id="IntroScene">
-      <rect id="blackbackground" visibility="visible" x="0" y="0"  width="800" height="600"/>
+      <rect id="blackbackground" x="0" y="0"  width="800" height="600"/>
       <text x="250" y="250" fill="white" font-size="50" >Rocket Man</text>
 
 
@@ -380,7 +386,8 @@
                                     to="0 0"
                                     dur="6s"
                                     begin="0s"
-                                    repeatCount="1"/>
+                                    repeatCount="1"
+                                    fill="freeze"/>
       </rect>
     </g>
   <!-- End Into Scene -->
@@ -395,6 +402,23 @@
     <circle id="moon" cx="725" cy="50" r="40"  />
     <use xlink:href="#ski-man1" transform="translate(745,-125) scale(0.2) rotate(99)"/>
     <!-- ADD SNOW-->
+    <use xlink:href="#snow-animation-fast" x="0" y="0" />
+    <use xlink:href="#snow-animation-slow" x="40" y="0" />
+
+    <g id="snow">
+        <g transform="translate(0 0)">
+          <circle cx="150" cy="750" r="220" fill="white" />
+          <circle cx="540" cy="900" r="400" fill="white" />
+          <rect x="0" y="600"  width="800" height="600" style="fill:rgb(255,255,255)"/>
+        </g>
+        <animateTransform id="snowmoving" attributeName="transform" type="translate"
+                                    from="0 0"
+                                    to="0 -500"
+                                    dur="32s"
+                                    begin="sceneA5.end"
+                                    repeatCount="1"
+                                    fill="freeze"/>
+    </g>
   </g>
   <!-- End Credit Scene -->
 

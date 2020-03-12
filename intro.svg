@@ -39,6 +39,20 @@
     <circle cx="725" cy="50" r="40" stroke="black" stroke-width="3" fill="#FFEDB9" />
     <use xlink:href="#ski-man1" transform="translate(725,55) scale(0.2) rotate(99)"/>
     <!-- ADD SNOW-->
+    <g id="TEST">
+        <g id="TEST" transform="translate(0 0)">
+          <circle cx="150" cy="750" r="220" fill="white" />
+          <circle cx="540" cy="900" r="400" fill="white" />
+          <rect x="0" y="600"  width="800" height="600" style="fill:rgb(255,255,255)"/>
+        </g>
+        <animateTransform id="snowmoving" attributeName="transform" type="translate"
+                                    from="0 0"
+                                    to="0 -500"
+                                    dur="6s"
+                                    begin="0s"
+                                    repeatCount="1"
+                                    fill="freeze"/>
+    </g>
   </g>
 
 

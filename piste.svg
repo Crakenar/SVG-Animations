@@ -3,9 +3,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
 
   <rect id="background" width="800" height="600" fill="gainsboro"/>
+  <!-- Define the pattern -->
+  <!--snow branch -->
+  <def>
+    <g id='snow-branch'>
+      <rect x="0" y="0" rx="5" ry="5" width="150" height="10"/>
+      <g transform="translate(10,-20) scale(0.5)" >
+          <polyline points="0,0 50,50 0,100"/>
+      </g>
+      <g transform="translate(138,30) scale(0.5) rotate(180)" >
+          <polyline points="0,0 50,50 0,100"/>
+      </g>
+    </g>
+  </def>
 
-    <line x1="0" y1="100" x2="60" y2="100" stroke="black" stroke-width="2"/>
-    <path d="M60 100 C 80 100,90 120, 90 120 S 150 300, 500 350" fill="transparent" stroke="black" stroke-width="2"/>
-    <path d="M500 350 C 550,350 600,350 650,300" fill="transparent" stroke="black" stroke-width="2"/>
+
+
+
+<path id="tefes" d="M0 100 L 60 100 C 80 100,90 120, 90 120 S 150 300, 500 350 C 550,350 600,350 650,300 L 650,400 L 0,400 Z" stroke="green" fill="url(#diagonalHatch)"/>
 
 </svg>
