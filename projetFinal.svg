@@ -4,6 +4,59 @@
 
 <!-- definition of all the sprites-->
 <defs>
+  <!--Defining the people-->
+    <ellipse id="corpsPublic" rx="10" ry="30" />
+    <circle id="tetePublic" cx="" cy="" r="10"/>
+    <rect id="brasPublic" width="5" height="30" />
+    <text id="Commentary1" opacity=".0" x ="0" y="0">It's a bird  !</text>
+    <text id="Commentary2" opacity=".0" x ="0" y="0">It's a plane !</text>
+    <text id="Commentary3" opacity=".0" x ="0" y="0">No ! It's Rocket Man !</text>
+
+
+    <g id="personne">
+        <use xlink:href="#corpsPublic" transform="translate(0,0)"/>
+        <use xlink:href="#tetePublic" transform="translate(0,-40)"/>
+        <use xlink:href="#brasPublic" transform="translate(25,-40) rotate(45)"/>
+        <use xlink:href="#brasPublic" transform="translate(-30,-37) rotate(-45)"/>
+    </g>
+
+    <g id="public">
+      <use xlink:href="#personne" />
+      <animateTransform id="personne" attributeName="transform" type="translate" from="0 0" to="0 -30" dur="0.7s" begin="0s" repeatCount="indefinite"/>
+    </g>
+
+    <!-- People commenting rocket man during the flying scene-->
+    <g id="animateCommentary">
+       <g id="animateCommentary1">
+          <use xlink:href="#personne" transform="scale(0.5)" />
+          <use xlink:href="#Commentary1" transform="translate(20,-40)"/>
+          <animate xlink:href="#Commentary1" attributeName="opacity" from="0" to="1" dur="2s" begin="descente_vol.end+1s"></animate>
+        </g>
+      <g id="animateCommentary2">
+          <use xlink:href="#personne" transform="scale(0.5)" />
+          <use xlink:href="#Commentary2" transform="translate(20,-40)"/>
+          <animate xlink:href="#Commentary2" attributeName="opacity" from="0" to="1" dur="2s" begin="descente_vol.end+3s"></animate> <!-- animateCommentary1.end-->
+      </g>
+      <g id="animateCommentary3">
+          <use xlink:href="#personne" transform="scale(0.5)" />
+          <use xlink:href="#Commentary3" transform="translate(-40,-40)"/>
+          <animate xlink:href="#Commentary3" attributeName="opacity" from="0" to="1" dur="2s" begin="descente_vol.end+5s"></animate> <!-- animateCommentary2.end-->
+      </g>
+  </g>
+  <g id="peoplesCommenting">
+    <g id="Commentary1.1"  transform="translate(100,350)">
+        <use xlink:href="#animateCommentary1" />
+    </g>
+    <g id="Commentary2.1"  transform="translate(400,350)">
+        <use xlink:href="#animateCommentary2" />
+    </g>
+
+    <g id="Commentary3.1"  transform="translate(700,350)">
+        <use xlink:href="#animateCommentary3" />
+    </g>
+
+  </g>  
+    
   <!--Mountain -->
   <g  id='mountain' transform="translate(0,0)">
     <g transform="translate(-500,0)">
@@ -247,25 +300,25 @@
   </g>
   <!-- ski-man scene 1 -->
   <g id="ski-man1"  transform="scale(0.4)">
-    <ellipse id="body" transform="translate(0,-100)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
-    <circle id="head" transform="translate(0,-150)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+    <ellipse id="body" transform="translate(0,-100)" cx="0" cy="0" rx="20" ry="50"/>
+    <circle id="head" transform="translate(0,-150)" cx="0" cy="0" r="20" />
 
-    <line id="battons" transform="translate(-50,-70)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+    <line id="battons" transform="translate(-50,-70)" x1="0" y1="0" x2="60" y2="-30" />
 
     <g id="hat">
-      <rect id="bottom" transform="translate(-21,-160)" width="42" height="5" fill="white"/>
-      <polygon id="middle" transform="translate(0,-180)" points="-21,20 21,20, 0,0" fill="red"/>
-      <circle id="top" transform="translate(0,-180)" cx="0" cy="0" r="3" fill="white"/>
+      <rect id="bottom" transform="translate(-21,-160)" width="42" height="5" />
+      <polygon id="middle" transform="translate(0,-180)" points="-21,20 21,20, 0,0"/>
+      <circle id="top" transform="translate(0,-180)" cx="0" cy="0" r="3"/>
     </g>
 
     <g id="legs">
       <g id="leg">
-        <line id="top" transform="translate(0,-60)" x1="0" y1="0" x2="0" y2="60" stroke="red" stroke-width="4"/>
+        <line id="top" transform="translate(0,-60)" x1="0" y1="0" x2="0" y2="60"/>
       </g>
 
       <g id="ski">
-        <line id="ski" transform="translate(-60,0)" x1="0" y1="0" x2="120" y2="0" stroke="red" stroke-width="4"/>
-        <line id="ski_tip" transform="translate(58,0)" x1="0" y1="0" x2="0" y2="-10" stroke="red" stroke-width="4"/>
+        <line id="ski" transform="translate(-60,0)" x1="0" y1="0" x2="120" y2="0" />
+        <line id="ski_tip" transform="translate(58,0)" x1="0" y1="0" x2="0" y2="-10"/>
       </g>
     </g>
   </g>
@@ -294,7 +347,7 @@
     <g id="JumpingScene">
       <use xlink:href="#background" x="0" y="0" />
       <use xlink:href="#background" x="800" y="0" />
-
+      <use href="#UltimateSun" transform="scale(1.2) translate(550 -10)"></use>
       <use xlink:href="#snow-animation-fast" x="0" y="0" />
       <use xlink:href="#snow-animation-slow" x="40" y="0" />
 
@@ -346,6 +399,18 @@
           dur="0.6s">
           <mpath xlink:href="#vol"/>
       </animateMotion>
+      <!-- big fans -->
+      <use xlink:href="#public" transform="translate(280,380) scale(0.7)" />
+      <use xlink:href="#public" transform="translate(100,380) scale(0.7)" />
+      <use xlink:href="#public" transform="translate(80,385) scale(0.5)" />
+      <use xlink:href="#public" transform="translate(60,380) scale(0.7)" />
+      <use xlink:href="#public" transform="translate(200,380) scale(0.7)" />
+      <!-- public -->
+       <use xlink:href="#public" transform="translate(500,330) scale(0.5)" />
+       <use xlink:href="#public" transform="translate(470,330) scale(0.5)" />
+       <use xlink:href="#public" transform="translate(530,330) scale(0.5)" />
+      
+      
     </g>
 
   <!-- END Jumping scene-->
@@ -354,7 +419,7 @@
     <g id="FlyingScene">
       <use xlink:href="#background" x="-200" y="0" />
       <use xlink:href="#background" x="600" y="0" />
-
+      <use href="#UltimateSun" transform="scale(1.2) translate(250 -10)"></use>
       <use xlink:href="#snow-animation-fast" x="0" y="0" />
       <use xlink:href="#snow-animation-slow" x="40" y="0" />
 
@@ -363,13 +428,15 @@
 
       <use xlink:href="#ski-man2" x="-100" y="100"/>
       <use xlink:href="#line" x="0" y="100" />
+      <use xlink:href="#peoplesCommenting" />
+      
     </g>
   <!-- End Flying scene -->
 
   <!-- intro Scene -->
     <g id="IntroScene">
       <rect id="blackbackground" x="0" y="0"  width="800" height="600"/>
-      <text x="250" y="250" fill="white" font-size="50" >Rocket Man</text>
+      <text class="text" x="250" y="250" font-size="50" >Rocket Man</text>
 
 
       <use xlink:href="#ski-man1" transform="translate(-50,400)">
@@ -395,21 +462,21 @@
   <!-- Credit Scene -->
   <g id="CreditScene">
     <rect id="blackbackground" x="0" y="0"  width="800" height="600" />
-    <text x="225" y="225" fill="white" font-size="50" >SVG Original by</text>
-    <text x="250" y="300" fill="white" font-size="50" >Berguerre Téo</text>
-    <text x="250" y="350" fill="white" font-size="50" >Bihan Baptiste</text>
-    <text x="250" y="400" fill="white" font-size="50" >Viellard Bruno</text>
+    <text class="text" x="225" y="225" font-size="50" >SVG Original by</text>
+    <text class="text"  x="250" y="300" font-size="50" >Berguerre Téo</text>
+    <text class="text"  x="250" y="350" font-size="50" >Bihan Baptiste</text>
+    <text class="text"  x="250" y="400" font-size="50" >Viellard Bruno</text>
     <circle id="moon" cx="725" cy="50" r="40"  />
     <use xlink:href="#ski-man1" transform="translate(745,-125) scale(0.2) rotate(99)"/>
     <!-- ADD SNOW-->
     <use xlink:href="#snow-animation-fast" x="0" y="0" />
     <use xlink:href="#snow-animation-slow" x="40" y="0" />
 
-    <g id="snow">
+    <g id="snowCredits">
         <g transform="translate(0 0)">
-          <circle cx="150" cy="750" r="220" fill="white" />
-          <circle cx="540" cy="900" r="400" fill="white" />
-          <rect x="0" y="600"  width="800" height="600" style="fill:rgb(255,255,255)"/>
+          <circle cx="150" cy="750" r="220" />
+          <circle cx="540" cy="900" r="400"/>
+          <rect x="0" y="600"  width="800" height="600"/>
         </g>
         <animateTransform id="snowmoving" attributeName="transform" type="translate"
                                     from="0 0"
@@ -488,8 +555,8 @@
 <!--BackGround -->
 <!--drawing the sun-->
 <defs>
-      <circle id="Sun"   cx="0" cy="0" r="30" fill="yellow"  />
-      <rect id="SunLight" width="40" height="3" fill="yellow" transform="translate(50,50)"/>
+      <circle id="Sun"   cx="0" cy="0" r="30"/>
+      <rect id="SunLight" width="40" height="3" transform="translate(50,50)"/>
   <g id="UltimateSun">
       <use href="#Sun" transform="translate(50,50)"/>
       <use href="#SunLight"/>
@@ -512,18 +579,18 @@
 <!-- all animations for ski-man-->
 <!-- ski-man -->
 <g id="ski-man" transform="scale(0.2)" opacity="1.0">
-  <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
-  <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
-  <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+  <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50"/>
+  <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20"/>
+  <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30"/>
   <g id="hat">
-    <rect id="bottom" transform="translate(79,90)" width="42" height="5" fill="white"/>
-    <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0" fill="red"/>
-    <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3" fill="white"/>
+    <rect id="bottom" transform="translate(79,90)" width="42" height="5"/>
+    <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0"/>
+    <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3"/>
   </g>
   <g id="legs">
     <g id="leg">
-      <line id="top" class="bottomCore" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
-      <line id="bottom" class="bottomCore" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+      <line id="top" class="bottomCore" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30"/>
+      <line id="bottom" class="bottomCore" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30"/>
     </g>
     <g id="ski">
       <line id="ski" class="bottomCore" transform="translate(40,260)" x1="0" y1="0" x2="120" y2="0"/>
@@ -533,21 +600,21 @@
 </g>
 <!-- ski-man -->
 <g id="ski-man" transform="scale(0.2)" opacity="1.0">
-  <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50" fill="red"/>
-  <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" fill="antiquewhite"/>
+  <ellipse id="body" transform="translate(100,150)" cx="0" cy="0" rx="20" ry="50"/>
+  <circle id="head" transform="translate(100,100)" cx="0" cy="0" r="20" />
 
-  <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" stroke="red" stroke-width="4"/>
+  <line id="battons" transform="translate(40,190)" x1="0" y1="0" x2="60" y2="-30" />
 
   <g id="hat">
-    <rect id="bottom" transform="translate(79,90)" width="42" height="5" fill="white"/>
-    <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0" fill="red"/>
-    <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3" fill="white"/>
+    <rect id="bottom" transform="translate(79,90)" width="42" height="5"/>
+    <polygon id="middle" transform="translate(100,70)" points="-21,20 21,20, 0,0"/>
+    <circle id="top" transform="translate(100,70)" cx="0" cy="0" r="3"/>
   </g>
 
   <g id="legs">
     <g id="leg">
-      <line id="top" class="bottomCore" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
-      <line id="bottom" class="bottomCore" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30" stroke="red" stroke-width="4"/>
+      <line id="top" class="bottomCore" transform="translate(100,200)" x1="0" y1="0" x2="0" y2="30"/>
+      <line id="bottom" class="bottomCore" transform="translate(100,230)" x1="0" y1="0" x2="0" y2="30"/>
 
     </g>
     <g id="ski">
@@ -558,6 +625,8 @@
 </g>
 
 <!-- line for the ski-man to follow-->
+<!-- Drawing the path for the competitor going from the left side
+of the window to the house-->
 <!--before the explosions (from the beginning until he crash-->
 <g id="FirstAnimation">
   <path id="aRandomLine" d="M-100 100 L90 270  q 150 -200 350 30"
@@ -650,7 +719,7 @@
 
 
 
-    <!--Drawing the house-->
+    <!--Defining the house-->
   <rect id="basement" width="100" height="60" />
   <polygon id="roof" points="400,390 450,340 500,390"/>
   <rect id ="door" width="20" height="30"/>
@@ -659,8 +728,8 @@
 
   <g id="windows">
         <use href="#windowsCenter"/>
-        <line  x1="0" y1="10" x2="20" y2="10" stroke="black"></line>
-        <line  x1="10" y1="0" x2="10" y2="20" stroke="black"></line>
+        <line class="lineWindows"  x1="0" y1="10" x2="20" y2="10" ></line>
+        <line class="lineWindows"  x1="10" y1="0" x2="10" y2="20" ></line>
   </g>
   <g id ="house" opacity="1.0">
     <use href="#chimney" transform="translate(475,250)"/>
@@ -686,10 +755,11 @@
 
 
 <defs>
-    <!-- Drawing the path for the competitor going from the left side
-    of the window to the house-->
+
     <g id="teoScene">
         <use xlink:href="#background" x="0" y="0" />
+        <use href="#AnimationSkiMan" />
+        <use href="#UltimateSun" transform="scale(1.2) translate(-25 -8)"></use>
         <use xlink:href="#snow-animation-fast" x="0" y="0" />
         <use xlink:href="#snow-animation-slow" x="40" y="0" />
         <use xlink:href="#moving-cloud-slow" x="0" y="0" />
@@ -707,9 +777,9 @@
 
         <!--Put animation in place-->
         <use x="350" y="200" xlink:href="#BoomBoomBomm"/>
-        <use href="#AnimationSkiMan" />
+      
         <use href="#animationTrampoline"></use>
-        <use href="#UltimateSun" transform="scale(1.2) translate(-20 -10)"></use>
+        
         <use href="#animationHouseDestroyed"></use>
         <use href="#moving-AfterExplosion" transform="translate(465,230)"></use>
       </g>
@@ -717,7 +787,7 @@
 <!-- END Definition Scene of Teo-->
 
 
-<!-- BEGIN Display-->
+<!-- BEGIN Display The differents SCENES-->
 
 <use xlink:href="#IntroScene" x="0" y="0" visibility="visible">
   <animate id="sceneA1" attributeName="visibility" begin="snowmoving.end"
@@ -740,7 +810,7 @@
 </use>
 
 <use xlink:href="#CreditScene" x="0" y="0" visibility="hidden">
-  <animate id="sceneA5" attributeName="visibility" begin="secondAnimation.end+8s"
+  <animate id="sceneA5" attributeName="visibility" begin="secondAnimation.end+9s"
         from="hidden" to="visible" dur="1s" fill="freeze" />
 </use>
 

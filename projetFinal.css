@@ -1,4 +1,29 @@
 /* fiche de style de l'animation "projetFinal.svg" */
+
+/*IntroText  */
+
+/*Credits */
+.text{
+  fill:white;
+}
+
+#snowCredits{
+  fill: white;
+}
+/*Colors for the public  */
+#corpsPublic{
+ fill: #000080;
+}
+
+#tetePublic{
+ fill: #FFF5EE;
+}
+
+#brasPublic{
+fill: cadetblue;
+}
+
+/*BackGround */
 #mountainPick {
   fill : white;
 }
@@ -30,6 +55,14 @@
   fill : white;
 }
 
+#Sun{
+  fill:yellow;
+}
+
+#SunLight{
+  fill:yellow;
+}
+/*Skier */
 #body {
   fill : red;
 }
@@ -130,8 +163,9 @@
   fill: #FF7B00;
 }
 
-#lineWindows{
-  fill: black;
+.lineWindows{
+ stroke-width: 2px;
+ stroke: black;
 }
 
 #basement{

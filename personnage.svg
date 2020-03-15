@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="no"?>
+<?xml-stylesheet  ?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+
+<defs>
+
+    <ellipse id="corps" rx="10" ry="30" />
+    <circle id="tete" cx="" cy="" r="10" fill="red" />
+    <rect id="bras" width="5" height="30" fill="green" />
+ <text id="Commentaire1" opacity=".0" x ="0" y="0">Its a bird  !</text>
+ <text id="Commentaire2" opacity=".0" x ="0" y="0">Its a plane !</text>
+ <text id="Commentaire3" opacity=".0" x ="0" y="0">No ! It's Rocket Man !</text>
+
+    <g id="personne">
+        <use xlink:href="#corps" transform="translate(50,100)"/>
+        <use xlink:href="#tete" transform="translate(50,60)"/>
+        <use xlink:href="#bras" transform="translate(75,60) rotate(45)"/>
+        <use xlink:href="#bras" transform="translate(20,63) rotate(-45)"/>
+       
+
+    </g>
+
+    <g id="animationPersonne">
+        <use xlink:href="#personne" />
+          <use xlink:href="#Commentaire1" transform="translate(20,63)"/>
+        <animate xlink:href="#Commentaire1" attributeName="opacity" from="0" to="1" dur="2s" begin="0s"></animate>
+    </g>
+    <g id="animationPersonne2">
+        <use xlink:href="#personne" />
+        <use xlink:href="#Commentaire2" transform="translate(20,63)"/>
+        <animate xlink:href="#Commentaire2" attributeName="opacity" from="0" to="1" dur="2s" begin="1s"></animate>
+    </g>
+
+    <g id="animationPersonne3">
+        <use xlink:href="#personne" />
+        <use xlink:href="#Commentaire3" transform="translate(20,63)"/>
+        <animate xlink:href="#Commentaire3" attributeName="opacity" from="0" to="1" dur="2s" begin="2s"></animate>
+    </g>
+    
+<g id="peoplesCommenting">
+  <g id="Commentary1"  transform="translate(100,400)">
+        <use xlink:href="#animationPersonne" />
+    </g>
+    <g id="Commentary2"  transform="translate(400,400)">
+         <use xlink:href="#animationPersonne2" />
+    </g>
+
+    <g id="Commentary3"  transform="translate(700,400)">
+         <use xlink:href="#animationPersonne3" />
+
+    </g>  
+</g>
+</defs>
+
+   <use xlink:href="#peoplesCommenting"/>
+
+
+</svg>
